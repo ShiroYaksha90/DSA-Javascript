@@ -26,3 +26,90 @@ class Support extends Player {
 const healer1 = new Support('Jack', 'Healer');
 healer1.introduction();
 healer1.heal();
+
+// Arrray class 
+
+class Myarray {
+    constructor(){
+        this.length = 0
+        this.data = {}
+    }
+
+    get(index){
+        return this.data[index]
+    }
+
+    push(item){
+        this.data[this.length] = item
+        this.length++
+        return this.length
+    }
+
+    pop(){
+        const lastItem = this.data[this.length - 1]
+        delete this.data[this.length - 1]
+        this.length--
+    }
+
+    delete(index){
+        const item = this.data[index]
+        this.shiftItems(index)
+    }
+
+    shiftItems(index){
+        for(let i = index; i < this.length-1; i++){
+            this.data[i]=this.data[i+1]
+        }
+        delete this.data[this.length - 1]
+        this.length--
+    }
+
+    reverse(){
+        let reversedArray = []
+        for( let i = this.length -1; i >= 0; i--){
+            reversedArray.push(this.data[i])
+        }
+        return reversedArray
+    }
+}
+
+const newArray = new Myarray();
+newArray.push('hello')
+newArray.push('world')
+newArray.push('!')
+newArray.delete(1)
+newArray.push('you')
+newArray.push('are')
+newArray.delete(1)
+newArray.push('nice')
+console.log(newArray)
+console.log('reversed array: ',newArray.reverse())
+
+// reverse a string
+
+const reverse = (str) => {
+    let reversedString =''
+    for (let i = str.length -1; i>=0; i--){
+        reversedString+=str[i]
+    }
+    return reversedString
+
+    
+}
+
+console.log('reversed string: ', reverse('Hi My name is Basim'))
+
+const reversedString = str => str.split('').reverse().join('')
+console.log('reversed string: ', reversedString('Hi My name is Basim'))
+
+const reversedString2 = str => [...str].reverse().join('')
+console.log('reversed string: ', reversedString2('Hi my name is Basim'))
+
+// merg two sorted arrays
+
+// mergSortedArrays([0,3,4,31], [4,6,30])
+// [0,3,4,4,6,30,31]
+
+const mergSortedArrays = (arr1,arr2) => {
+    
+}
